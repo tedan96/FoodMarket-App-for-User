@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <script defer src="./js/title.js"></script>
+    <title>Project F</title>
+
+    <!-- toast ui -->
+    <!-- Editor's Dependecy Style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css" />
+    <!-- Editor's Style -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+
+</head>
+
+<body>
+    <header>
+        <div id="top-title">Project F</div>
+        <div id="div_logout" class="logout">
+            <button type="button" id="btn-logout">로그아웃</button>
+        </div>
+    </header>
+
+    <section>
+        <!-- #region left -->
+        <div id="div_left">
+            <div id="nav-snb">
+                <div class="list_menu">
+                    <ul>
+                        <li class="menu_item" menu-id="Notices" data-title="공지사항">
+                            <a class="link_menu" href="#?menu=Notices" title="공지사항">공지사항</a></li>
+                        <li class="menu_item" menu-id="Contributions" data-title="나눔이야기">
+                            <a class="link_menu" href="#?menu=Contributions" title="나눔이야기">나눔이야기</a></li>
+                        <li class="menu_item" menu-id="Messaging" data-title="알림 보내기">
+                            <a class="link_menu" href="#?menu=Messaging" title="알림 보내기">알림 보내기</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- #endregion left-->
+
+        <!-- #region right -->
+        <div id="div_right">
+            <div id="content">
+                <div>
+                    <button id="btn-refresh">새로고침</button>
+                </div>
+
+                <div id="content-title">
+
+                </div>
+
+
+                <!-- #region content list -->
+                <div id="content-list">
+                    <button id="btn-write">글쓰기</button>
+                    <button id="btn-delete">삭제</button>
+
+                    <div class="scroll">
+                        <div id="loader" style="display: none;"></div>
+
+                        <ul class="content_list" id="content-list-ul">
+                            <!-- <li class="content_item" data-contentid="THIS_IS_CONTENT_ID_1">
+                                <span class="info_content">
+                                    <input type="checkbox" name="cCk" class="ct_check">
+                                    <label aria-hidden="true" for="cCk" class="lab_check" tabindex="0"></label>
+                                    <span class="content_num">1</span>
+                                </span>
+                                <span class="info_title">
+                                    <a href="#NOTICES/THIS_IS_CONTENT_ID_1" class="link_title">
+                                        <strong>제목은 이거 입니다</strong>
+                                    </a>
+                                </span>
+                                <span class="info_date">
+                                    <em>20.08.02 15:50</em>
+                                </span>
+                            </li> -->
+                        </ul>
+
+                        <!-- #region paging -->
+                        <div id="content-paging">
+                            <ul id="list-page">
+                                <!-- <li><a href="javascript:;" class="link-page" data-page="1">1</a></li> -->
+                            </ul>
+                        </div>
+                        <!-- #endregion paging -->
+
+                    </div>
+                </div>
+                <!-- #endregion content list -->
+
+                <!-- #region content viewer -->
+                <div id="content-viewer" style="display: none;">
+
+                </div>
+                <!-- #endregion content viewer -->
+
+
+                <!-- #region content writer -->
+                <div id="content-writer" style="display: none;">
+                    <button type="button" id="btn-write-complete">완료</button>
+
+                    <div id="writer-title">
+                        <label for="title">제목</label>
+                        <input type="text" placeholder="제목 입력" class="form-control" id="write-title" required>        
+                    </div>
+                    <div id="writer-content"></div>
+                </div>
+                <!-- #endregion content writer -->
+            </div>
+        </div>
+        <!-- #endregion right -->
+
+    </section>
+
+    <footer></footer>
+
+    <!-- #region template -->
+    <script id="template-title" type="text/template">
+        <strong>{Title}</strong>
+    </script>
+
+    <script id="template-content-list-item" type="text/template">
+        <li class="content_item" data-contentid="{content-id}">
+            <span class="info_content">
+                <input type="checkbox" name="cCk" class="ct_check">
+                <label aria-hidden="true" for="cCk" class="lab_check" tabindex="0"></label>
+                <span class="content_num">{number}</span>
+            </span>
+
+            <span class="info_title">
+                <a href="/main#?menu={menu-id}&id={content-id}" class="link_title">
+                    <strong>{title}</strong>
+                </a>
+            </span>
+
+            <span class="info_date">
+                <em>{date}</em>
+            </span>
+        </li>
+    </script>
+
+    <script id="template-paging-list-item" type="text/template">
+        <li><a href="javascript:;" class="link-page" data-page="{page-number}">{number}</a></li>
+    </script>
+    <!-- #endregion template -->
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script defer src="/__/firebase/7.17.2/firebase-app.js"></script>
+
+    <!-- NOTE: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script defer src="/__/firebase/7.17.2/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/7.17.2/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.17.2/firebase-firestore.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <!-- <script defer src="./init-firebase.js"></script> -->
+    <script defer src="./js/main/check_firebase.js"></script>
+
+    <!-- toast ui -->
+    <script defer src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+
+    <script defer src="./js/main/Date_Format.js"></script>
+    <script defer src="./js/main/main.js"></script>
+</body>
+
+</html>

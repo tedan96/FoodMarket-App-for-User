@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="홈"
+            android:visible="false" />
+        <item
+            android:id="@+id/nav_notice"
+            android:icon="@drawable/notice"
+            android:title="공지사항" />
+        <item
+            android:id="@+id/nav_information"
+            android:icon="@drawable/check"
+            android:title="이용안내" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/bag"
+            android:title="나눔이야기" />
+        <item
+            android:id="@+id/nav_howCome"
+            android:icon="@drawable/commute"
+            android:title="오시는 길" />
+    </group>
+</menu>

@@ -1,0 +1,25 @@
+@import "./base.css";
+
+.login-form {
+    width: 15%;
+    margin: 0 auto;
+    margin-top: 2em;
+}
+
+label {
+    display: block;
+}
+
+.form-group {
+    margin-top: 1em;
+}
+
+input[type=email], input[type=password] {
+    box-sizing: border-box;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.btn.btn-login {
+    margin: 1em 0 auto auto;
+}

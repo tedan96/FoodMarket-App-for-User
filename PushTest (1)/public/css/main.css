@@ -1,0 +1,116 @@
+@import "./base.css";
+@import "./loading.css";
+
+section {
+    position: absolute;
+    top: 10em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+#div_left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    float: none;
+    min-width: 200px;
+    background-color: #eeeeee;
+}
+
+#nav-snb {
+    border-width: 0 1px;
+}
+
+.list_menu ul{
+    margin: 0;
+    padding: 3em;
+}
+
+.list_menu li {
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+#div_right {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 200px;
+    right: 0;
+    overflow: auto;
+}
+
+#content {
+    width: 50%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#content-title {
+    text-align: center;
+    margin-top: 1em;
+    
+    font-size: 3em;
+    font-weight: 400;
+}
+
+#content-title strong {
+}
+
+/* #region content-viewer */
+#content-viewer {
+}
+
+.info_content .content_num{
+    margin: 0 1em;
+}
+
+.info_title {
+    margin-left: 2em;
+    width: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.info_date {
+    float: right;
+}
+
+.info_date em {
+    font-style: normal;
+}
+
+#content-paging {
+    text-align: center;
+}
+
+#list-page {
+    display: inline;
+    padding: 0;
+}
+
+#list-page li {
+    display: inline;
+}
+
+/* #endregion content-viewer */
+
+
+#content-writer {
+}
+
+/* #region Messaging */
+
+#message-title-area, #message-content-area {
+    margin: 1em 0;
+}
+
+#message-content-area label {
+    vertical-align: top;
+}
+
+/* #endregion Messaging */

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <script defer src="./js/title.js"></script>
+    <title>Project F</title>
+
+    <!-- toast ui -->
+    <!-- Editor's Dependecy Style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css" />
+    <!-- Editor's Style -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+
+</head>
+
+<body>
+    <header>
+        <div id="top-title">Project F</div>
+        <div id="div_logout" class="logout">
+            <button type="button" id="btn-logout">로그아웃</button>
+        </div>
+    </header>
+
+    <section>
+        <!-- #region left -->
+        <div id="div_left">
+            <div id="nav-snb">
+                <div class="list_menu">
+                    <ul>
+                        <li class="menu_item" menu-id="Notices">
+                            <a class="link_menu" id="Notices" href="#?menu=Notices" title="공지사항">공지사항</a></li>
+                        <li class="menu_item" menu-id="Contributions">
+                            <a class="link_menu" id="Contributions" href="#?menu=Contributions" title="나눔이야기">나눔이야기</a>
+                        </li>
+                        <li class="menu_item" menu-id="Messaging">
+                            <a class="link_menu" id="Messaging" href="#?menu=Messaging" title="알림 보내기">알림 보내기</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- #endregion left-->
+
+        <!-- #region right -->
+        <div id="div_right">
+            <div id="content">
+
+                <div id="content-title">
+
+                </div>
+
+
+                <!-- #region content list -->
+                <div id="content-list">
+                    <button id="btn-refresh">새로고침</button>
+                    <button id="btn-write">글쓰기</button>
+                    <button id="btn-delete">삭제</button>
+
+                    <div class="scroll">
+                        <div id="loader" hidden></div>
+
+                        <ul class="content_list" id="content-list-ul">
+                        </ul>
+
+                        <!-- #region paging -->
+                        <div id="content-paging">
+                            <ul id="list-page">
+                            </ul>
+                        </div>
+                        <!-- #endregion paging -->
+
+                    </div>
+                </div>
+                <!-- #endregion content list -->
+
+
+                <!-- #region content viewer -->
+                <div id="content-viewer" hidden>
+                    <button id="btn-edit">수정</button>
+                    <div id="toast-viewer"></div>
+                </div>
+                <!-- #endregion content viewer -->
+
+
+                <!-- #region content writer -->
+                <div id="content-writer" hidden>
+                    <button type="button" id="btn-write-complete">완료</button>
+
+                    <div id="writer-title">
+                        <label for="title">제목</label>
+                        <input type="text" placeholder="제목 입력" class="form-control" id="write-title" required>
+                    </div>
+                    <div id="content-writer-editor">
+                        <!-- place for toast editor -->
+                    </div>
+                </div>
+                <!-- #endregion content writer -->
+
+
+                <!-- #region messaging -->
+
+                <div id="messaging" hidden>
+                    <form>
+                        <button type="button" id="btn-message-complete">보내기</button>
+                        <div id="message-write">
+                            <div id="message-title-area">
+                                <label for="message-title">제목 (필수)</label>
+                                <input type="text" id="message-title" placeholder="제목 입력" size="51" class="form-control"
+                                    required>
+                            </div>
+                            <div id="message-content-area">
+                                <label for="message-content">내용 (필수)</label>
+                                <textarea id="message-content" placeholder="내용 입력" rows="4" cols="50" required
+                                    style="resize: none;"></textarea>
+                            </div>
+                        </div>
+                        <div id="message-select">
+                            <p>첨부할 게시글 주소를 넣어주세요.(필수 아님)</p>
+                            <input type="text" id="message-select-link" placeholder="주소 입력" size="63" />
+                        </div>
+                    </form>
+                </div>
+                <!-- #endregion messaging -->
+            </div>
+        </div>
+        <!-- #endregion right -->
+
+    </section>
+
+    <footer></footer>
+
+    <!-- #region template -->
+    <script id="template-title" type="text/template">
+        <strong>{Title}</strong>
+    </script>
+
+    <script id="template-content-list-item" type="text/template">
+        <li class="content_item" data-contentid="{content-id}">
+            <span class="info_content">
+                <input type="checkbox" name="chk_content" class="ct_check">
+                <label aria-hidden="true" for="chk_content" class="lab_check" tabindex="0"></label>
+                <span class="content_num">{number}</span>
+            </span>
+
+            <span class="info_title">
+                <a href="/main#?menu={menu-id}&id={content-id}" class="link_title">
+                    <strong>{title}</strong>
+                </a>
+            </span>
+
+            <span class="info_date">
+                <em>{date}</em>
+            </span>
+        </li>
+    </script>
+
+    <script id="template-paging-list-item" type="text/template">
+        <li><a href="javascript:;" class="link-page" data-page="{page-number}">{number}</a></li>
+    </script>
+    <!-- #endregion template -->
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script defer src="/__/firebase/8.2.4/firebase-app.js"></script>
+
+    <!-- NOTE: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script defer src="/__/firebase/8.2.4/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/8.2.4/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.2.4/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/8.2.4/firebase-functions.js"></script>
+    <script defer src="/__/firebase/8.2.4/firebase-messaging.js"></script>
+
+    <!-- Initialize Firebase -->
+    <!-- TODO: to publish, remove ?useEmulator=true -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <!-- firebase code for checking, etc. -->
+    <script defer src="./js/main/firebase_init.js"></script>
+    <!-- toast ui -->
+    <script defer src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+
+
+    <script defer src="./js/main/Date_Format.js"></script>
+    <script defer src="./js/main/SessionStorageInterface.js"></script>
+    <script defer src="./js/main/board_control.js"></script>
+    <script defer src="./js/main/messaging_control.js"></script>
+    <script defer src="./js/main/main.js"></script>
+    <script defer src="./js/main/regist_handler.js"></script>
+</body>
+
+</html>

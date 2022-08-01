@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "106856281877",
+    "firebase_url": "https://pushtest-61ad2.firebaseio.com",
+    "project_id": "pushtest-61ad2",
+    "storage_bucket": "pushtest-61ad2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106856281877:android:e59e38c25d4971ac659b1c",
+        "android_client_info": {
+          "package_name": "com.example.songpafoodmarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106856281877-gc59f21p32gpl6dj1t11lo6jhpc0i622.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAc6ktw0eFw78_oh6h4J4J2diiU-txrffg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106856281877-gc59f21p32gpl6dj1t11lo6jhpc0i622.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

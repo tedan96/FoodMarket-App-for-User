@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <script defer src="./js/title.js"></script>
+    <title>Project F</title>
+</head>
+
+<body>
+
+    <header>
+        <div id="top-title">Project F</div>
+    </header>
+
+    <section id="section_">
+        <div id="div_login" class="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" placeholder="이메일 입력" class="form-control" id="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pwd">Password</label>
+                <input type="password" placeholder="비밀번호 입력" class="form-control" id="pwd" required>
+            </div>
+
+            <button type="button" class="btn btn-default btn-login" id="btn_login">로그인</button>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script defer src="/__/firebase/8.2.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script defer src="/__/firebase/8.2.4/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/8.2.4/firebase-auth.js"></script>
+
+    <!-- Initialize Firebase -->
+    <!-- TODO: to publish, remove ?useEmulator=true -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <!-- <script defer src="./init-firebase.js"></script> -->
+    <script defer src="./js/index.js"></script>
+</body>
+
+</html>
